@@ -1,11 +1,14 @@
 <?php
+
 include 'login_check.php';
-function redirect($url) {
+function redirect($url)
+{
     ob_start();
-    header('Location: '.$url);
+    header('Location: ' . $url);
     ob_end_flush();
     die();
 }
+
 $host = 'localhost';
 $db = 'netland';
 $user = 'root';
@@ -40,8 +43,7 @@ $query = <<<EOT
                         WHERE 
                             id = '${id}'
                         ;
-                    EOT
-;
+                    EOT;
 
 $result = $pdo->query($query)->fetch();
 

@@ -1,11 +1,14 @@
 <?php
+
 include 'login_check.php';
-function redirect($url) {
+function redirect($url)
+{
     ob_start();
-    header('Location: '.$url);
+    header('Location: ' . $url);
     ob_end_flush();
     die();
 }
+
 $host = 'localhost';
 $db = 'netland';
 $user = 'root';
@@ -25,7 +28,7 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-if (isset($_POST['serie'])){
+if (isset($_POST['serie'])) {
     $serie = 1;
 } else {
     $serie = 0;
@@ -42,8 +45,7 @@ $query = <<<EOT
                             '${_POST['title']}',
                             '${serie}'
                         );
-                    EOT
-;
+                    EOT;
 
 $result = $pdo->query($query)->fetch();
 
