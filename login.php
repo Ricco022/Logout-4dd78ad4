@@ -16,7 +16,7 @@
         ob_end_flush();
         die();
     }
-    if (isset($_COOKIE['loggedInUser'])) {
+    if (isset($_COOKIE['logfs gcgedInUser'])) {
         redirect("index.php");
     }
     if (isset($_COOKIE['error'])) {
